@@ -4,13 +4,22 @@
  */
 
 :root {
-    --primary-bg: #0f0f0f;
-    --navbar-bg: #000000;
-    --card-bg: #1a1a1a;
-    --accent-red: #ff2c2c;
-    --accent-yellow: #f5c518;
-    --text-white: #ffffff;
-    --text-gray: #aaaaaa;
+    --primary-bg: #F0F9FF;
+    /* Light Cyan */
+    --navbar-bg: #06B6D4;
+    /* Sky Blue */
+    --card-bg: #ffffff;
+    /* White */
+    --accent-red: #F472B6;
+    /* Pink (Accent) */
+    --accent-yellow: #0891B2;
+    /* Teal (Secondary) */
+    --text-white: #0f172a;
+    /* Dark Slate (Main Text) */
+    --text-gray: #475569;
+    /* Slate Gray (Muted Text) */
+    --hero-text: #ffffff;
+    /* Special variable for Hero/Dark overlays */
 }
 
 /* Global Reset & Typography */
@@ -104,13 +113,17 @@ img {
 }
 
 .nav-links a {
-    color: var(--text-white);
+    color: #ffffff;
+    /* Force White on Sky Blue Navbar */
     font-weight: 500;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
-    color: var(--accent-red);
+    color: #ffffff;
+    /* Keep white but add underline or opacity change in future if needed, or stick to white for simplicity */
+    text-decoration: underline;
+    text-underline-offset: 5px;
 }
 
 .hamburger {
@@ -134,12 +147,14 @@ img {
 
 .btn-primary {
     background-color: var(--accent-red);
-    color: var(--text-white);
+    /* Pink */
+    color: #ffffff;
 }
 
 .btn-primary:hover {
     background-color: var(--accent-yellow);
-    color: var(--navbar-bg);
+    /* Teal */
+    color: #ffffff;
 }
 
 /* Hero Section */
@@ -160,11 +175,13 @@ img {
 .hero-content h1 {
     font-size: 60px;
     margin-bottom: 20px;
+    color: var(--hero-text);
 }
 
 .hero-content p {
     font-size: 24px;
-    color: var(--text-gray);
+    color: #e2e8f0;
+    /* Light Gray for subtext on dark bg */
     margin-bottom: 40px;
 }
 
@@ -202,6 +219,7 @@ img {
 
 .product-price {
     color: var(--accent-yellow);
+    /* Teal */
     font-weight: 600;
     font-size: 1.1rem;
     margin-bottom: 10px;
@@ -293,6 +311,7 @@ img {
     font-family: 'Inter', sans-serif;
     font-size: 24px;
     color: var(--accent-yellow);
+    /* Teal */
     margin-bottom: 30px;
     display: block;
 }
@@ -326,7 +345,8 @@ img {
 
 .manifesto strong {
     color: var(--text-white);
-    font-weight: 400;
+    /* Dark Slate in Light Mode */
+    font-weight: 600;
 }
 
 /* Contact Page */
