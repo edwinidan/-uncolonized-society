@@ -114,7 +114,20 @@ function loadAllProducts() {
     const container = document.querySelector('#all-products');
     if (!container) return;
 
-    container.innerHTML = products.map(product => `
+    // Sort products so "First Edition Drop" (ID 2) is first if needed, 
+    // or just rely on the map. Since we want ID 2 to be the "Active" one, we can just render.
+    // The user asked for "First visible product should be First Edition Drop".
+    // Let's sort to put ID 2 first, then others.
+    const sortedProducts = [...products].sort((a, b) => {
+        if (a.id === 2) return -1;
+        if (b.id === 2) return 1;
+        return a.id - b.id; // Keep others in order
+    });
+
+    container.innerHTML = sortedProducts.map(product => {
+        if (product.id === 2) {
+            // Active Product
+            return `
         <div class="product-card">
             <a href="product.html?id=${product.id}">
                 <img src="${getImageUrl(product.image, product.category)}" alt="${product.name}" class="product-image">
@@ -125,7 +138,26 @@ function loadAllProducts() {
                 <div class="btn-view">VIEW DETAILS</div>
             </a>
         </div>
-    `).join('');
+            `;
+        } else {
+            // Locked Product
+            return `
+        <div class="product-card locked">
+            <div style="position: relative;">
+                <img src="${getImageUrl(product.image, product.category)}" alt="${product.name}" class="product-image blurred">
+                <div class="lock-overlay">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lock-icon"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    <div class="lock-text">FUTURE DROP</div>
+                </div>
+            </div>
+            <div class="product-info" style="opacity: 0.5;">
+                <h3>${product.name}</h3>
+                <span class="product-price">--</span>
+            </div>
+        </div>
+            `;
+        }
+    }).join('');
 }
 
 function loadProductDetails() {
