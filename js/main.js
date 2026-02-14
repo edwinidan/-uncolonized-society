@@ -183,7 +183,7 @@ function loadProductDetails() {
     // Setup Order Button
     const orderBtn = document.querySelector('#order-btn');
     if (orderBtn) {
-        orderBtn.href = `https://instagram.com/direct/t/UNcolonizedSociety`;
+        orderBtn.href = `https://www.instagram.com/uncolonizedsociety_ghana?igsh=MXB5dTFseTk0bDB2eA==`;
         // Optional: Pre-fill message draft if supported or just direct to DM
     }
 }
