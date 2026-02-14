@@ -28,7 +28,11 @@ body {
     overflow-x: hidden;
 }
 
-h1, h2, h3, h4, .logo {
+h1,
+h2,
+h3,
+h4,
+.logo {
     font-family: 'Oswald', sans-serif;
     font-weight: 600;
     letter-spacing: 1px;
@@ -98,7 +102,8 @@ img {
     font-weight: 500;
 }
 
-.nav-links a:hover, .nav-links a.active {
+.nav-links a:hover,
+.nav-links a.active {
     color: var(--accent-red);
 }
 
@@ -138,10 +143,11 @@ img {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1523398002811-999ca8dec234?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1523398002811-999ca8dec234?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
     background-size: cover;
     background-position: center;
-    margin-top: -76px; /* Offset navbar height for full screen effect */
+    margin-top: -76px;
+    /* Offset navbar height for full screen effect */
     padding-top: 76px;
 }
 
@@ -179,7 +185,8 @@ img {
     aspect-ratio: 4/5;
     object-fit: cover;
     margin-bottom: 15px;
-    background-color: #222; /* Placeholder bg */
+    background-color: #222;
+    /* Placeholder bg */
 }
 
 .product-info h3 {
@@ -218,7 +225,8 @@ img {
 }
 
 .product-detail-image {
-    flex: 6; /* 60% */
+    flex: 6;
+    /* 60% */
 }
 
 .product-detail-image img {
@@ -228,7 +236,8 @@ img {
 }
 
 .product-detail-info {
-    flex: 4; /* 40% */
+    flex: 4;
+    /* 40% */
 }
 
 .product-detail-info h1 {
@@ -340,7 +349,50 @@ textarea.form-control {
     resize: vertical;
 }
 
-/* Footer */
+/* Featured Drop - Single Item */
+.featured-drop-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.featured-product-card {
+    background-color: var(--card-bg);
+    padding: 20px;
+    transition: transform 0.3s ease;
+    max-width: 400px;
+    width: 100%;
+    position: relative;
+    text-align: center;
+}
+
+.featured-product-card:hover {
+    transform: scale(1.03);
+}
+
+.featured-product-image {
+    width: 100%;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    margin-bottom: 20px;
+    background-color: #222;
+}
+
+.badge-limited {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--accent-red);
+    color: var(--text-white);
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 10;
+}
+
+/* Footer & Socials */
 footer {
     background-color: var(--navbar-bg);
     padding: 40px 0;
@@ -357,16 +409,27 @@ footer {
 }
 
 .social-links {
-    margin-top: 20px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    /* Improved spacing */
 }
 
 .social-links a {
     color: var(--text-gray);
-    margin: 0 10px;
+    font-size: 1.1rem;
+    /* Slightly larger */
+    font-weight: 600;
+    /* Bolder */
+    transition: all 0.3s ease;
 }
 
 .social-links a:hover {
     color: var(--accent-red);
+    transform: translateY(-3px);
+    /* Subtle hover effect */
+    text-shadow: 0 0 10px rgba(255, 44, 44, 0.4);
 }
 
 /* Responsive Breakpoints */
@@ -374,7 +437,7 @@ footer {
     .grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .hero-content h1 {
         font-size: 48px;
     }
@@ -384,11 +447,11 @@ footer {
     .grid {
         grid-template-columns: 1fr;
     }
-    
+
     .hero-content h1 {
         font-size: 36px;
     }
-    
+
     .hamburger {
         display: block;
         position: absolute;
@@ -396,7 +459,7 @@ footer {
         top: 25px;
         z-index: 1001;
     }
-    
+
     .nav-links {
         position: fixed;
         top: -100%;
@@ -410,19 +473,19 @@ footer {
         transition: 0.4s ease;
         border-bottom: 1px solid #333;
     }
-    
+
     .nav-links.nav-active {
         top: 0;
     }
-    
+
     .product-details-container {
         flex-direction: column;
     }
-    
+
     .contact-container {
         grid-template-columns: 1fr;
     }
-    
+
     /* Adjust container padding for mobile */
     .container {
         padding: 0 20px;

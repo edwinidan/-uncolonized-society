@@ -70,13 +70,13 @@ const getImageUrl = (imgPath, category) => {
     // For this MVP, we will use Unsplash placeholders to ensure images load
     // In a real scenario, we'd check if the file exists or use the provided path
     // Mapping categories to Unsplash keywords
-    
+
     /* 
        NOTE: In a production environment with real assets, we would just return imgPath.
        For this demo/MVP without local image files, I'm returning Unsplash URLs 
        that match the description.
     */
-    
+
     // Uncomment this line to use local assets if they exist:
     // return imgPath; 
 
@@ -85,7 +85,7 @@ const getImageUrl = (imgPath, category) => {
     if (imgPath.includes('tshirt')) return 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80';
     if (imgPath.includes('cap')) return 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80';
     if (imgPath.includes('cargo')) return 'https://images.unsplash.com/photo-1517445312882-b41fa34628ee?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80';
-    
+
     return 'https://images.unsplash.com/photo-1523398002811-999ca8dec234?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80';
 };
 
@@ -96,7 +96,7 @@ function loadFeaturedProducts() {
     if (!container) return;
 
     const featured = products.filter(p => p.featured).slice(0, 4);
-    
+
     container.innerHTML = featured.map(product => `
         <div class="product-card">
             <a href="product.html?id=${product.id}">
@@ -134,7 +134,7 @@ function loadProductDetails() {
 
     const params = new URLSearchParams(window.location.search);
     const id = parseInt(params.get('id'));
-    
+
     // Find product or default to ID 1
     const product = products.find(p => p.id === id) || products.find(p => p.id === 1);
 
@@ -147,7 +147,7 @@ function loadProductDetails() {
     document.querySelector('#p-name').textContent = product.name;
     document.querySelector('#p-price').textContent = formatPrice(product.price);
     document.querySelector('#p-description').textContent = product.description;
-    
+
     // Setup Order Button
     const orderBtn = document.querySelector('#order-btn');
     if (orderBtn) {
@@ -159,7 +159,7 @@ function loadProductDetails() {
 function setupMobileMenu() {
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
-    
+
     if (hamburger && navLinks) {
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('nav-active');
@@ -179,20 +179,20 @@ function setupMobileMenu() {
 // Init
 function init() {
     setupMobileMenu();
-    
+
     // Page detection
     if (document.querySelector('#featured-products')) {
         loadFeaturedProducts();
     }
-    
+
     if (document.querySelector('#all-products')) {
         loadAllProducts();
     }
-    
+
     if (document.querySelector('#product-details')) {
         loadProductDetails();
     }
-    
+
     // Contact form shim (frontend only)
     const contactForm = document.querySelector('#contact-form');
     if (contactForm) {
