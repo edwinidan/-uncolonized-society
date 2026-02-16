@@ -193,41 +193,15 @@ function setupMobileMenu() {
     const navLinks = document.querySelector('.nav-links');
 
     if (hamburger && navLinks) {
-        // Create backdrop overlay
-        let backdrop = document.querySelector('.menu-backdrop');
-        if (!backdrop) {
-            backdrop = document.createElement('div');
-            backdrop.className = 'menu-backdrop';
-            document.body.appendChild(backdrop);
-        }
-
-        // Toggle menu
         hamburger.addEventListener('click', () => {
-            const isActive = navLinks.classList.contains('nav-active');
-
-            if (isActive) {
-                navLinks.classList.remove('nav-active');
-                backdrop.classList.remove('active');
-                hamburger.textContent = '☰';
-            } else {
-                navLinks.classList.add('nav-active');
-                backdrop.classList.add('active');
-                hamburger.textContent = '✕';
-            }
-        });
-
-        // Close menu when clicking backdrop
-        backdrop.addEventListener('click', () => {
-            navLinks.classList.remove('nav-active');
-            backdrop.classList.remove('active');
-            hamburger.textContent = '☰';
+            navLinks.classList.toggle('nav-active');
+            hamburger.textContent = navLinks.classList.contains('nav-active') ? '✕' : '☰';
         });
 
         // Close menu when clicking a link
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('nav-active');
-                backdrop.classList.remove('active');
                 hamburger.textContent = '☰';
             });
         });
