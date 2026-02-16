@@ -3,6 +3,17 @@
  * Phase 1 MVP
  */
 
+/* Custom Fonts */
+/* @font-face {
+    font-family: 'Clash Display';
+    src: url('../fonts/ClashDisplay-Variable.ttf') format('truetype');
+    src: url('../fonts/Blackout Midnight.ttf') format('truetype');
+
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+} */
+
 :root {
     --primary-bg: #0f0f0f;
     --navbar-bg: #000000;
@@ -33,7 +44,7 @@ h2,
 h3,
 h4,
 .logo {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Clash Display', sans-serif;
     font-weight: 600;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -73,11 +84,12 @@ img {
 
 /* Navbar */
 .navbar {
-    background-color: var(--navbar-bg);
+    background-color: rgba(0, 0, 0, 0.8);
     padding: 20px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
+    backdrop-filter: blur(10px);
 }
 
 .nav-container {
@@ -128,7 +140,7 @@ img {
     cursor: pointer;
     transition: 0.3s ease;
     text-transform: uppercase;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Clash Display', sans-serif;
     letter-spacing: 1px;
 }
 
@@ -254,7 +266,7 @@ img {
 }
 
 .lock-text {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Clash Display', sans-serif;
     font-size: 1.2rem;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -447,7 +459,7 @@ footer {
 
 .footer-logo {
     font-size: 24px;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Clash Display', sans-serif;
     margin-bottom: 20px;
     display: inline-block;
 }
