@@ -84,13 +84,19 @@ img {
 
 /* Navbar */
 .navbar {
-    background-color: rgba(0, 0, 0, 0.8);
+    background: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0.2),
+            rgba(255, 255, 255, 0.05));
     padding: 20px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
+
 
 .nav-container {
     display: flex;
@@ -450,12 +456,23 @@ textarea.form-control {
 
 /* Footer & Socials */
 footer {
-    background-color: var(--navbar-bg);
+    background: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0.2),
+            rgba(255, 255, 255, 0.05));
     padding: 40px 0;
     text-align: center;
     margin-top: 80px;
-    border-top: 1px solid #222;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.05);
+    /* Negative value for top shadow */
+    position: relative;
+    /* Ensures proper placement */
+    z-index: 10;
+    /* Lower than navbar to avoid overlap */
 }
+
 
 .footer-logo {
     font-size: 24px;
